@@ -54,6 +54,21 @@
     "iso": "cat",
     "name": "Catalan"
   },
+  "chinese (simplified)": {
+    "id": "chinese (simplified)",
+    "iso": "chi",
+    "name": "Chinese (Simplified)"
+  },
+  "chinese (traditional)": {
+    "id": "chinese (traditional)",
+    "iso": "cht",
+    "name": "Chinese (Traditional)"
+  },
+  "chinese bilingual": {
+    "id": "chinese bilingual",
+    "iso": "zhe",
+    "name": "Chinese bilingual"
+  },
   "croatian": {
     "id": "croatian",
     "iso": "hrv",
