@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require('cors');
-const Subtitles = require('./opensubtitles.js');
+const multiSubtitles = require('./opensubtitles.js');
 const sub2vtt = require('sub2vtt');
 const manifest = require("./manifest.json");
 
@@ -51,9 +51,11 @@ app.get('/manifest.json', (_, res) => {
 app.get('/:resource/:type/:id/:extra.json', async (req, res) => {
     console.log("Subtitle request:", req.params);
     const { type, id } = req.params;
+	// 支持的语言列表
+	const supportedLangs = ["chinese (traditional)", "chinese (simplified)", "chinese bilingual", "english"];
     
     try {
-        const subtitles = await Subtitles(type, id, "chinese (traditional)");
+        const subtitles = await multiSubtitles(type, id, supportedLangs);
         res.json({ subtitles: subtitles || [] });
     } catch (error) {
         console.error("Error getting subtitles:", error);
